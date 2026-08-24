@@ -8,16 +8,26 @@
     <link rel="icon" type="image/jpeg" href="duck.jpeg">
 </head>
 <body>
-    <nav> <!-- Navigation bar with links to different sections of the page -->
-            <ul> <!-- Unordered list for navigation links -->
-                <li><a href="index.html">Home</a></li>
-                <li><a href="biography.html">Biography</a></li> 
-                <li><a href="engineering.html">Engineering</a></li>
-                <li><a href="music.html">Music</a></li>
-                <li><a href="https://www.linkedin.com/in/sophia-ner" target="_blank">LinkedIn</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+    <nav class="navbar">
+
+           <a href="index.html" class="site-name">Sophia Ner</a>
+
+           <button class="menu-toggle" onclick="toggleMenu()">
+                ☰
+            </button>
+
+            <div class="nav-links"> <!-- Navigation bar with links to different sections of the page -->
+                <ul> <!-- Unordered list for navigation links -->
+                    <!-- <li><a href="index.html" style="font-size: x-large;">Sophia Ner</a></li> -->
+                    <li><a href="biography.html">Biography</a></li> 
+                    <li><a href="engineering.html">Engineering</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="https://www.linkedin.com/in/sophia-ner" target="_blank">LinkedIn</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </nav>
+
 
 
     <div class="container">
@@ -36,6 +46,9 @@
             <textarea id="message" name = "Message" placeholder="Type your message here..." required></textarea>
             <button type="submit">Send Message</button>
         </form> 
-    </div>            
+    </div>
+    
+    <script src="toggle.js"></script>
+    
 </body>
 </html>

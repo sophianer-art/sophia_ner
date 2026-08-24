@@ -1,3 +1,4 @@
+
 /* =========================================================
    1. FONTS & COLOR VARIABLES
    ========================================================= */
@@ -21,33 +22,28 @@
    2. GLOBAL STYLES
    ========================================================= */
 
-/* Reset default browser spacing and make sizing predictable */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Base font and text color */
 html {
     font-family: 'Google Sans', sans-serif;
     color: var(--text-color);
 }
 
-/* Page background and outer spacing */
 body {
     padding: 1em;
     background-color: var(--base-color);
 }
 
-/* Serif font for headings */
 h1,
 h2,
 h3 {
     font-family: 'Source Serif 4', serif;
 }
 
-/* Prevent large media elements from overflowing their containers */
 img,
 video,
 iframe {
@@ -59,36 +55,77 @@ iframe {
    3. NAVIGATION
    ========================================================= */
 
-/* Main navigation container */
-nav {
+/*
+   Desktop navigation layout:
+
+   Sophia Ner      Biography   Engineering   Music   Contact
+*/
+
+.navbar {
+    position: relative;
+
     width: min(1000px, 100%);
     margin: 1em auto 2em;
-}
 
-/* Navigation links */
-nav ul {
     display: flex;
     align-items: center;
-    gap: 2em;
-    list-style: none;
+    justify-content: space-between;
 }
 
-/* Site name / logo */
-nav li:first-child {
-    margin-right: auto;
-    font-family: 'Source Serif 4', 'Google Sans', sans-serif;
+/* Sophia Ner / site name */
+
+.site-name {
+    flex-shrink: 0;
+
+    font-family: 'Source Serif 4', serif;
+    font-size: x-large;
     font-weight: bold;
-}
 
-/* Navigation links */
-nav a {
     color: var(--text-color);
     text-decoration: none;
 }
 
-/* Navigation hover effect */
-nav a:hover {
+/* Navigation links */
+
+.nav-links {
+    margin-left: auto;
+}
+
+.nav-links ul {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.nav-links a:hover {
     text-decoration: underline;
+}
+
+/* Hamburger */
+
+.menu-toggle {
+    display: none;
+
+    margin-left: auto;
+
+    padding: 0;
+
+    background: none;
+    border: none;
+
+    color: var(--text-color);
+
+    font-size: 1.8rem;
+    line-height: 1;
+
+    cursor: pointer;
 }
 
 
@@ -96,55 +133,56 @@ nav a:hover {
    4. HEADER / HERO
    ========================================================= */
 
-/* General header container */
 header {
     width: min(75em, 100%);
     margin: 2em auto;
     padding: min(2em, 15%);
+
     background-color: var(--primary-color);
     border-radius: 1em;
 }
 
-/* Main hero section */
 .hero {
     width: min(75em, 100%);
     margin: 2em auto;
     padding: min(2em, 15%);
+
     background-color: var(--primary-color);
     border-radius: 1em;
 }
 
-/* Layout for image + text */
 .flex-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+
     gap: 3em;
     width: 100%;
 }
 
-/* Images inside the flexible header layout */
 .flex-container img {
     width: 50%;
     max-width: 600px;
     height: auto;
+
     border-radius: 1em;
+
     object-fit: cover;
     object-position: top;
 }
 
-/* Header-specific image */
 header img {
     width: 100%;
     max-width: 400px;
     height: auto;
+
     border-radius: 1em;
+
     object-fit: cover;
     object-position: top;
 }
 
-/* Text next to an image */
 .text-container {
     flex: 1;
     min-width: 0;
@@ -153,19 +191,19 @@ header img {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
     gap: 1em;
 
     text-align: left;
 }
 
-/* Main page heading */
 h1 {
     margin: 0.75em 0 1em;
 }
 
-/* Paragraphs inside the text container */
 .text-container p {
     margin: 0.75em 0 1em;
+
     font-size: 1.25em;
     text-align: left;
 }
@@ -175,15 +213,14 @@ h1 {
    5. BUTTONS
    ========================================================= */
 
-/* Container for multiple buttons */
 .button-group {
     display: flex;
     flex-wrap: wrap;
+
     gap: 1em;
     margin-top: 1.5em;
 }
 
-/* Main call-to-action button */
 .cta-button {
     display: inline-block;
 
@@ -200,12 +237,10 @@ h1 {
     transition: transform 100ms ease;
 }
 
-/* Button hover effect */
 .cta-button:hover {
     transform: translateY(-2px);
 }
 
-/* Secondary button */
 .secondary {
     background-color: var(--color-1);
 }
@@ -215,7 +250,6 @@ h1 {
    6. GENERAL SECTIONS
    ========================================================= */
 
-/* General content sections */
 section {
     width: min(75em, 100%);
     margin: 2em auto;
@@ -227,18 +261,15 @@ section {
     text-align: center;
 }
 
-/* Section headings */
 section h2 {
     font-size: 2em;
 }
 
-/* Section paragraphs */
 section p {
     margin-top: 1em;
     font-size: 1.25em;
 }
 
-/* My Work section */
 section#my-work {
     background-color: var(--primary-color);
 }
@@ -248,7 +279,6 @@ section#my-work {
    7. IMAGE GRID
    ========================================================= */
 
-/* Grid used for project / image galleries */
 .grid-container {
     display: grid;
 
@@ -265,20 +295,21 @@ section#my-work {
     gap: 1em;
 }
 
-/* Images inside the grid */
 .grid-container img {
     display: block;
+
     width: 100%;
     max-width: 100%;
+
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
+
     border-radius: 0.5em;
 
     transition: transform 100ms ease;
 }
 
-/* Grid image hover effect */
 .grid-container img:hover {
     transform: scale(1.05);
 }
@@ -288,7 +319,6 @@ section#my-work {
    8. PAGE INTRO
    ========================================================= */
 
-/* Introductory card at the top of pages */
 .page-intro {
     width: min(75em, 100%);
     margin: 2em auto;
@@ -300,12 +330,10 @@ section#my-work {
     text-align: center;
 }
 
-/* Page intro heading */
 .page-intro h1 {
     margin-bottom: 1em;
 }
 
-/* Page intro paragraph */
 .page-intro p {
     margin-top: 1em;
     font-size: 1.15em;
@@ -316,12 +344,6 @@ section#my-work {
    9. PROJECT CARDS
    ========================================================= */
 
-/*
-   General project card.
-
-   The media and text sit beside each other on larger
-   screens and stack vertically on smaller screens.
-*/
 .engineering-project,
 .music-project {
     width: min(75em, 100%);
@@ -332,36 +354,31 @@ section#my-work {
     border-radius: 1em;
 }
 
-
-/* Allow the text column to shrink without overflowing */
-/* Introductory text */
 .project-text {
     width: 100%;
 }
 
-/* Project heading */
 .project h2,
 .engineering-project h2 {
     margin-top: 0;
     margin-bottom: 1em;
+
     font-size: 2em;
 }
 
-/* Engineering project subheading */
 .engineering-project h3 {
     margin-top: 1em;
     font-size: 1.4em;
 }
 
-/* Project paragraph */
 .project p,
 .engineering-project p {
     margin-top: 1em;
+
     font-size: 1.1em;
     line-height: 1.5;
 }
 
-/* Project media */
 .project img,
 .project video,
 .engineering-project img,
@@ -373,48 +390,40 @@ section#my-work {
     height: auto;
 
     border-radius: 1em;
+
     object-fit: cover;
 }
-
 
 
 /* =========================================================
    10. EMBEDDED PROJECTS / MEDIA
    ========================================================= */
 
-/*
-   Container for embedded projects such as:
-   - Python/JavaScript simulations
-   - Tinkercad
-   - videos
-   - audio
-   - iframes
-*/
-
 .embedded-project {
     display: flex;
     flex-direction: row;
-
     align-items: center;
+
     gap: 3em;
 
     width: 100%;
     max-width: 100%;
     min-width: 0;
+
     margin: 4em 0;
 }
 
-/* Media column */
 .project-media {
-     flex: 1 1 0;
+    flex: 1 1 0;
+
     width: 50%;
     min-width: 0;
     max-width: 100%;
 }
 
-/* Text column */
 .project-description {
     flex: 1 1 0;
+
     width: 50%;
     min-width: 0;
     max-width: 100%;
@@ -426,21 +435,24 @@ section#my-work {
     margin-top: 1.5em;
 }
 
-/* Media */
 .project-media img {
     display: block;
+
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 1em;
 
+    object-fit: cover;
+
+    border-radius: 1em;
 }
 
 .project-media video {
     display: block;
+
     width: 100%;
     max-width: 100%;
     height: auto;
+
     border-radius: 1em;
 }
 
@@ -453,53 +465,64 @@ section#my-work {
     text-decoration: underline;
 }
 
-/* Video + caption container */
+
+/* =========================================================
+   11. VIDEO + CAPTIONS
+   ========================================================= */
+
 .video-container {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+
     margin: 0;
+
     overflow: hidden;
 }
 
-/* Video */
 .video-container video {
     display: block;
+
     width: 100%;
     max-width: 100%;
     height: auto;
+
     border-radius: 1em;
 }
 
-/* Caption */
 .video-container figcaption {
     width: 100%;
     max-width: 100%;
+
     margin-top: 0.75em;
 
     font-size: 0.9em;
     line-height: 1.4;
+
     text-align: center;
 
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
 
-/* Audio players */
+
+/* =========================================================
+   12. AUDIO / EMBEDS / CAD
+   ========================================================= */
+
 .project-media audio,
 .embedded-project audio {
     display: block;
+
     width: 100%;
     max-width: 100%;
 }
 
-/* Project subheading */
 .project-media h3 {
     margin-top: 0;
     margin-bottom: 1em;
 }
 
-/* Embedded websites */
 .embedded-project iframe {
     display: block;
 
@@ -511,7 +534,6 @@ section#my-work {
     border-radius: 1em;
 }
 
-/* Tinkercad iframe */
 .tinkercad-frame {
     display: block;
 
@@ -522,35 +544,35 @@ section#my-work {
     border: none;
     border-radius: 10px;
 }
-/* CAD Viewing */
+
 .stl-viewer {
     width: 100%;
     height: 400px;
+
     border-radius: 12px;
+
     overflow: hidden;
 }
 
 
 /* =========================================================
-   11. EQUATIONS
+   13. EQUATIONS
    ========================================================= */
 
-/* Center equations on project pages */
 .equation {
     margin: 1.5em 0;
+
     text-align: center;
 
-    /* Prevent long equations from causing horizontal overflow */
     max-width: 100%;
     overflow-x: auto;
 }
 
 
 /* =========================================================
-   12. CONTACT FORM
+   14. CONTACT FORM
    ========================================================= */
 
-/* Main contact form container */
 .container {
     min-height: 100vh;
 
@@ -560,14 +582,15 @@ section#my-work {
     justify-content: center;
 
     gap: 1em;
+
     margin-top: 2em;
 }
 
-/* Contact form */
 .container form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     gap: 1em;
 
     width: 100%;
@@ -579,24 +602,22 @@ section#my-work {
     border-radius: 1em;
 }
 
-/* Form heading */
 .container form h1 {
     margin-top: 1em;
     text-align: left;
     font-size: 2em;
 }
 
-/* Form labels / subheadings */
 .container form h4 {
     margin-top: 1em;
     text-align: left;
     font-size: 1em;
 }
 
-/* Text inputs */
 .container form input {
     width: 100%;
     max-width: 100%;
+
     padding: 0.75em 1em;
 
     outline: none;
@@ -604,12 +625,10 @@ section#my-work {
     color: var(--text-color);
 }
 
-/* Input placeholder */
 .container form input::placeholder {
     color: var(--text-color);
 }
 
-/* Message textarea */
 .container form textarea {
     width: 100%;
     max-width: 100%;
@@ -623,13 +642,13 @@ section#my-work {
     outline: none;
 
     color: var(--text-color);
+
     font-weight: 400;
     font-size: 1em;
 
     resize: vertical;
 }
 
-/* Form submit button */
 .container form button {
     align-self: center;
 
@@ -650,17 +669,15 @@ section#my-work {
     transition: 100ms ease;
 }
 
-/* Form button hover */
 .container form button:hover {
     background-color: var(--color-3);
 }
 
 
 /* =========================================================
-   13. RESPONSIVE STYLES — TABLETS
+   15. TABLETS
    ========================================================= */
 
-/* Adjust header layout on medium-sized screens */
 @media (max-width: 988px) {
 
     header {
@@ -674,28 +691,147 @@ section#my-work {
 
 
 /* =========================================================
-   14. RESPONSIVE STYLES — SMALL SCREENS
+   16. MOBILE NAVIGATION
    ========================================================= */
 
 @media (max-width: 700px) {
 
-    /* -------------------------
-       Navigation
-       ------------------------- */
+    /* -----------------------------------------------------
+       NAVBAR
+       ----------------------------------------------------- */
 
-    nav li {
-        display: none;
+    .navbar {
+        position: relative;
+
+        width: 100%;
+        margin: 1em auto 2em;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    nav li:first-child,
-    nav li:last-child {
+    /*
+       Sophia Ner ALWAYS stays visible.
+       It is never hidden by the mobile menu.
+    */
+
+    .site-name {
+        display: block;
+
+        flex-shrink: 0;
+
+        font-family: 'Source Serif 4', serif;
+        font-size: x-large;
+        font-weight: bold;
+
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    /*
+       Hamburger appears on the right.
+    */
+
+    .menu-toggle {
+        display: block;
+
+        flex-shrink: 0;
+
+        margin-left: auto;
+
+        background: none;
+        border: none;
+
+        color: var(--text-color);
+
+        font-size: 1.8rem;
+        line-height: 1;
+
+        cursor: pointer;
+    }
+
+    /*
+       Navigation menu is hidden until JavaScript
+       adds the .active class.
+    */
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: calc(100% + 0.5em);
+        right: 0;
+
+        z-index: 1000;
+
+        margin: 0;
+    }
+
+    /*
+       JavaScript should add .active to .nav-links
+       when the hamburger is clicked.
+    */
+
+    .nav-links.active {
         display: block;
     }
 
+    /*
+       Dropdown menu
+    */
 
-    /* -------------------------
-       Header
-       ------------------------- */
+    .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        width: 200px;
+
+        margin: 0;
+        padding: 0.5em 0;
+
+        list-style: none;
+
+        background-color: var(--base-color);
+
+        border-radius: 0.5em;
+
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /*
+       Every dropdown link gets its own row.
+    */
+
+    .nav-links li {
+        display: block;
+
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+
+        width: 100%;
+
+        padding: 0.8em 1em;
+
+        color: var(--text-color);
+
+        text-decoration: none;
+    }
+
+    .nav-links a:hover {
+        background-color: var(--primary-color);
+        text-decoration: none;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER
+       ----------------------------------------------------- */
 
     header {
         margin-top: 0;
@@ -705,14 +841,16 @@ section#my-work {
         width: 100%;
         max-width: 400px;
         height: auto;
+
         aspect-ratio: 1 / 1;
+
         object-fit: cover;
     }
 
 
-    /* -------------------------
-       Flexible header layout
-       ------------------------- */
+    /* -----------------------------------------------------
+       FLEXIBLE HEADER
+       ----------------------------------------------------- */
 
     .flex-container {
         flex-direction: column;
@@ -725,24 +863,27 @@ section#my-work {
 
     .text-container {
         width: 100%;
+
         align-items: flex-start;
     }
 
 
-    /* -------------------------
-       Buttons
-       ------------------------- */
+    /* -----------------------------------------------------
+       BUTTONS
+       ----------------------------------------------------- */
 
     .cta-button {
         width: 100%;
+
         margin-top: 0.5em;
+
         text-align: center;
     }
 
 
-    /* -------------------------
-       Project cards
-       ------------------------- */
+    /* -----------------------------------------------------
+       PROJECT CARDS
+       ----------------------------------------------------- */
 
     .project,
     .engineering-project {
@@ -750,18 +891,17 @@ section#my-work {
         align-items: stretch;
 
         width: 100%;
+
         padding: 2em;
 
         gap: 2em;
     }
 
-    /* Remove alternating row direction on mobile */
     .project:nth-child(even),
     .engineering-project:nth-child(even) {
         flex-direction: column;
     }
 
-    /* Project media fills available width */
     .project img,
     .project video,
     .engineering-project img,
@@ -772,15 +912,16 @@ section#my-work {
     }
 
 
-    /* -------------------------
-       Embedded projects
-       ------------------------- */
+    /* -----------------------------------------------------
+       EMBEDDED PROJECTS
+       ----------------------------------------------------- */
 
     .embedded-project {
         flex-direction: column;
         align-items: stretch;
 
         width: 100%;
+
         gap: 2em;
     }
 
@@ -793,19 +934,21 @@ section#my-work {
     .embedded-project iframe {
         width: 100%;
         max-width: 100%;
+
         height: 400px;
     }
 
     .tinkercad-frame {
         width: 100%;
         max-width: 100%;
+
         height: 400px;
     }
 
 
-    /* -------------------------
-       Image grid
-       ------------------------- */
+    /* -----------------------------------------------------
+       IMAGE GRID
+       ----------------------------------------------------- */
 
     .grid-container {
         display: flex;
@@ -820,9 +963,9 @@ section#my-work {
     }
 
 
-    /* -------------------------
-       Typography
-       ------------------------- */
+    /* -----------------------------------------------------
+       TYPOGRAPHY
+       ----------------------------------------------------- */
 
     .text-container p {
         font-size: 1em;
@@ -839,12 +982,11 @@ section#my-work {
 
 
 /* =========================================================
-   15. VERY SMALL SCREENS
+   17. VERY SMALL SCREENS
    ========================================================= */
 
 @media (max-width: 400px) {
 
-    /* Reduce card padding so content has more horizontal space */
     header,
     section,
     .project,
@@ -853,12 +995,10 @@ section#my-work {
         padding: 1.5em;
     }
 
-    /* Prevent buttons from becoming too large */
     .container form button {
         width: 100%;
     }
 
-    /* Make embedded content slightly shorter */
     .embedded-project iframe,
     .tinkercad-frame {
         height: 350px;
