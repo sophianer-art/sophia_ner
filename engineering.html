@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering | Sophia Ner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="duck.jpeg">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+    <!-- Inline Math -->
+     <script> MathJax = {
+        tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+            };
+        </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <!-- View CAD designs  -->
+    <script type="importmap">
+    
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+}
+</script>
+<script type="module" src="stl-viewer.js"></script>
+
+</head>
+<body>
+    <header>
+    <nav> <!-- Navigation bar with links to different sections of the page -->
+            <ul> <!-- Unordered list for navigation links -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="biography.html">Biography</a></li> 
+                <li><a href="engineering.html">Engineering</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="https://www.linkedin.com/in/sophia-ner" target="_blank">LinkedIn</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Engineering page introduction -->
+     <section class = "page-intro">
+        <h1>Engineering Portfolio</h1>
+        <p>
+           Welcome to my engineering portfolio! Here you can find information about my engineering projects, skills, and experiences.  
+        </p>    
+        <p>
+            I’m particularly interesting in finding ways to combine skills that I’ve gained during my time at UBC Engineering and my musical interests. 
+        </p>
+    </section>
+
+    <!-- Engineering Projects -->
+        <!-- PYTHON -->
+        <div class="engineering-project">
+            <div class = "project-text">
+                <h2>Python Projects - August 2026</h2>
+                <h3>Virtual String</h3>
+                <p>
+                    <strong>Tools:</strong> Python, NumPy, Matplotlib
+                </p>
+
+                <p>
+                     A Python simulation of a vibrating cello string using wave equations and harmonic frequencies. 
+                </p>
+
+                <p>
+                    Learning Python is a skill I’ve wanted to develop for a while, as it is an important tool for working with large sets of data. I have some experience with programming from taking APSC 160 (Introduction to Computation in Engineering Design - Coding in C) at UBC, but as a Materials Engineering student, there are not many opportunities to use this language. For learning Python, I used YouTube to learn the basics of Python (<a href="https://youtube.com/playlist?list=PLL0SWcFqypCmkHClksnGlab3wglEVMqNN&si=-a1HJE1Asentx3Ii">this playlist specifically!</a>), and Google to find sources for libraries that I needed to do specific functions for this project and ChatGPT to help with debugging. 
+                </p>
+
+                <p>
+                    Combining my interests in music with programming, and using some basic knowledge about simple harmonic motion from PHYS 157, I decided to model a simplistic cello string. 
+                </p>
+
+                <p>
+                  Since this was my first project coding with Python, I decided to break down this project into subprojects. 
+                </p>
+            </div>
+        
+
+            <!-- String Animation -->
+            
+            <div class="embedded-project">
+            
+                    <div class="project-media">
+                        <h3>String Animation</h3>
+
+                        <video controls>
+                            <source src= "cello_string_animation.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                
+                    <div class="project-description">
+                        <p>
+                            I started with the string animation since I was familiar with generating plots from watching the YouTube videos. For modelling the cello string itself, I used the length (0.69 m) and frequency (220Hz) of a standard cello A string, and estimated the amplitude of the wave to be 5mm (the amplitude is related to how ‘strongly’ you play the string, so this is variable). To create the string equation, I used the standing wave equation.   
+                        </p>
+                        
+                        <!-- Standing wave equation -->
+                        $$ y = A \sin\Big(\frac{n\pi x}{L}\Big) \cos(2\pi n f t) $$
+                        
+                        $$
+                        \begin{aligned}
+                            A &= \text{amplitude} \\
+                            n &= \text{harmonic number} \\
+                            x &= \text{position along string} \\
+                            L &= \text{length of string} \\
+                            f &= \text{frequency} \\
+                            t &= \text{time}
+                        \end{aligned}
+                        $$
+                        
+                        <p>
+                            I made a separate equation for each harmonic, and added them together using the principal of superposition. The final waveform that I used has eight harmonics.   
+                        </p>
+
+                        <p>
+                            Using the FuncAnimation from matplotlib to create the animation of the wave.
+                        </p>
+
+
+                    </div>   
+            </div>
+
+                
+            <div class="embedded-project">
+                <div class="project-media">
+                    <h3>String Audio</h3>
+                    <audio controls>
+                        <source src="virtual_cello_A3.wav" type="audio/wav">
+                    </audio>
+                </div>
+
+                <div class="project-description">
+                    <p>
+                        To make the audio, I used the same cello string properties that I used for the animation, and the same equations that I used to make the wave. I added an amplitude envelop so that there was an attack and delay to the audio. 
+                    </p>
+                    <p>
+                       The Python module sound device was imported to play the audio, and the SciPy library was used to save the audio as a WAV file. 
+                    </p>
+                </div>
+            </div>
+
+            
+            <div class="embedded-project">
+                <div class="project-media">
+                    <h3>String Animation + Audio </h3>
+
+                    <video controls>
+                        <source src= "virtual_cello_complete.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="project-description">
+                    <p>
+                        After getting the animation and audio to work independently, I wanted to have the animation and audio play together in one file. I used the same code from the animation and audio and animation subprojects. With the MoviePy library, combined the animation and audio into one file, which is what you see above.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="project-description">
+                <p>
+                    The next thing I want to do with this project is add material properties from different brands of strings. Eventually, I would like to prompt the use to select a brand of string and then the program would output the audio for each string.
+                </p>
+
+                <p>
+                    However, since most strings are either composites or made out of a ‘synthetic’ material not disclosed by the string company, gathering the material properties has added a layer of complexity for creating this simulation.
+                </p>
+            </div>
+              
+        </div>
+
+        <!-- EUS EC -->
+         <div class="engineering-project">
+            <div class="project-text">
+                <h2>EUS Engineering Design Competition - March 2026</h2>
+
+                <p>
+                    <strong>Tools:</strong>Design, Prototyping, Presentation
+                </p>
+            </div>
+
+            <div class="embedded-project">
+                <div class="project-media">
+                    <img src="Engineering\EC mtrlgirls.JPG">
+                    <img src="Engineering\EC high five.JPG">
+                </div>
+
+                <div class="project-description">
+                    <p>
+                        The Engineering Undergraduate Society (EUS) hosts multiple design competitions every year. My classmates and I entered the Junior category where we were tasked to design and build a mechanism to launch mini beanbags at a specified target. We were given four hours to design, build, and troubleshoot, along with a set amount of building materials and a $20 budget to use at the “shop”. Teams were marked on presentation of our beanbag-launching device and being able to accurately land in a bullseye five meters away.
+                    </p>
+
+                    <p>
+                        My team build a catapult, where we experimented with the shape basket to hold the beanbag, the strength of different strings, and launch angle of the arm. Our team ended up scoring the maximum amount of points for accuracy and we came in first for our presentation. We won the Junior category of the design competition along with $150.
+                    </p>
+                </div>
+                
+
+            </div>
+
+         </div>
+
+        <!-- ARDUINO PROJECTS -->
+        <div class="engineering-project">
+
+            <div class="project-text">
+                <h2>Arduino Projects - August 2025</h2>
+
+                <p>
+                    <strong>Tools:</strong> Arduino, C++, Tinkercad
+                </p>
+
+                <p>
+                    Electronic musical instruments designed using TinkerCAD and code in C++.
+                </p>
+            </div>
+
+
+            <!-- POTENTIOMETER -->
+            <div class="embedded-project">
+
+                <div class="project-media">
+                    <h3>
+                        <a href="https://www.tinkercad.com/things/1RvYX1fS2xG-tone-generator" target="_blank">
+                            Potentiometer Chromatic Tone Generator
+                         </a>
+                    </h3>
+                    <img src="potentiometer.png" alt="Potentiometer chromatic tone generator">
+                </div>
+
+                <div class="project-description">
+                    <p>
+                        In the code, there is a function that maps the analog input from
+                        the potentiometer to a pitch in the range of 120–1500 Hz.
+                        When the potentiometer is at position 0, no sound plays.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- KEYPAD -->
+            <div class="embedded-project">
+
+                <div class="project-media">
+                    <h3>
+                        <a href="https://www.tinkercad.com/things/ijDRT28MzCC-keypad-keyboard" target="_blank">
+                        Keypad Keyboard
+                        </a>
+                    </h3>
+
+                    <img src="keypad.png" alt="Keypad keyboard">
+                </div>
+
+                <div class="project-description">
+
+                    <p>
+                        To store the pitches in the keypad, I used a 4x4 array to match
+                        the setup of the physical keypad. There are two functions that
+                        make this simulation work.
+                    </p>
+
+                    <p>
+                        The first function checks if a key on the keypad is currently
+                        being pressed, and stores the corresponding character into a
+                        variable. If a key is pressed, it returns the character
+                        associated with the key based on the array. If no key is pressed,
+                        it returns a null character.
+                    </p>
+
+                    <p>
+                        The second function takes the key that was stored in the variable
+                        from the first function and returns the frequency associated with
+                        the key. I chose to make the keypad return a C Major scale.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+                
+
+
+        <!-- CAD DESIGNS -->
+        <div class="engineering-project">
+            <div class = "project-text">
+                <h2>CAD Designs</h2>
+                    <p>
+                        <strong>Tools:</strong> CAD
+                    </p>
+                <p>Details about my CAD designs...</p>
+                
+            </div>
+            <!-- Watercolour Pallette -->
+            <div class="embedded-project">
+                <div class="project-media">
+                    <h3>Watercolour Palette</h3>
+                    <div id="palette-viewer" class="stl-viewer"></div>
+                </div>
+
+                <div class="project-description">
+                    Description coming soon...
+                </div>
+            </div>
+
+            <!-- Hood Fan Knobs -->
+            <div class="embedded-project">
+                <div class="project-media">
+                    <h3>Miele Hood Fan Knobs</h3>
+                    <div id ="knobs-viewer" class="stl-viewer"></div>
+                </div>
+
+                <div class="project-description">
+                    Description coming soon...
+                </div>
+            </div>
+        </div>
+
+        <!-- Tennis ball trebuchet -->
+        <div class="engineering-project">
+            <div class = "project-text">
+                <h2>Tennis Ball Trebuchet</h2>
+                <p>
+                    <strong>Skills</strong> Hand and Power Tools, Prototyping, Testing
+                </p>
+
+                <div class="embedded-project">
+                    <div class="project-media">
+                        <video controls>
+                            <source src= "High School\Trebuchet Video.MOV" type="video/mp4">
+                        </video>
+                    </div>
+                
+                
+                <div class="project-description">
+                    <p>
+                        In my high school engineering class, we were tasked to build a tennis ball launcher. The requirement for this project was to launch a tennis ball a minimum of 10 meters, and we were also graded on precision, having to launch the tennis ball two times and earning extra points if we minimized the distance between the two launches. 
+                    </p>
+
+                    <p>
+                        With these constraints in mind, my group decided to build a mini trebuchet. The frame of the trebuchet is made of scrap wood found at our high school, and we used a 5 pound counterweight generously loaded to us from the weight room. My groupmate made the sling for the tennis ball from fabric.
+                    </p>
+
+                    <p>
+                        Through this project, my group learned how to use many woodworking machines, such as the chop saw, band saw, table saw, and drill press.
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+       
+
+    <script type="module" src="stl-viewer.js"></script>
+    </body>
+</html>
